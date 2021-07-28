@@ -1,0 +1,39 @@
+.alertWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: max-content;
+  height: max-content;
+  padding: 1rem;
+  z-index: 3;
+}
+
+.alertContainer {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 0.7rem;
+  border-radius: 100rem;
+  cursor: pointer;
+  backdrop-filter: blur(0.3rem);
+}
+
+.icon {
+  box-sizing: initial;
+  margin-right: 0.5rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  background-color: var(--secondary);
+  padding: 5px;
+  border-radius: 100rem;
+}
+
+.icon path {
+  fill: var(--text);
+}
+
+.message {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--white-text);
+}

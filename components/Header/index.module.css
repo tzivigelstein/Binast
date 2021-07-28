@@ -1,0 +1,117 @@
+.header {
+  position: relative;
+  background-image: url('/assets/header.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--dark-primary);
+  min-height: 300px;
+}
+
+.headerFilter {
+  width: 100%;
+  min-height: 300px;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(0.25rem);
+  display: grid;
+  place-items: center;
+}
+
+.headingContainer {
+  padding: 1rem;
+  background-color: var(--background);
+  width: max-content;
+  border-radius: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  margin-block: 5rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.shortName {
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 100rem;
+  margin-right: 0.5rem;
+}
+
+.price {
+  font-size: 2.1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.highLowContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-block: 0.5rem;
+}
+
+.highPriceContainer {
+  display: flex;
+  align-items: center;
+}
+
+.highPriceIcon {
+  stroke: var(--success);
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.highPrice {
+  color: var(--success);
+  font-size: 1.1rem;
+}
+
+.lowPriceContainer {
+  display: flex;
+  align-items: center;
+}
+
+.lowPriceIcon {
+  stroke: var(--warning);
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.lowPrice {
+  color: var(--warning);
+  font-size: 1.1rem;
+}
+
+.detailContainer {
+  display: grid;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.value {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.searchBarContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: var(--search-bar-height);
+  bottom: calc(var(--search-bar-height) / -2);
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -1,0 +1,19 @@
+.navbar {
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+.title {
+  /* font-family: ; */
+  color: var(--white-text);
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.titleAccent {
+  color: var(--secondary);
+}
