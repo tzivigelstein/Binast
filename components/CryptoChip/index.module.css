@@ -14,12 +14,24 @@
 
 .nameInfo {
   margin-inline: 0.3rem;
+  display: flex;
+  align-items: center;
 }
 
 .name {
   color: var(--text);
   font-size: 1rem;
+  margin: 0;
   margin-inline-end: 0.3rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .name {
+    max-width: 5.5rem;
+  }
 }
 
 .id {

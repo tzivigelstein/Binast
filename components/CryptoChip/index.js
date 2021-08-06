@@ -14,7 +14,7 @@ const CryptoChip = ({ data }) => {
         <Image height={42} width={42} src={url} alt={`${name} | ${id}`} />
       </div>
       <div className={styles.nameInfo}>
-        <span className={styles.name}>{name}</span>
+        <p className={styles.name}>{name}</p>
         <span className={styles.id}>{id}</span>
       </div>
       <div className={styles.priceInfo}>
