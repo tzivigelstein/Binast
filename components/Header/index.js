@@ -1,26 +1,14 @@
+import { useState } from 'react'
 import { ChevronDown, ChevronUp } from '../Icons'
 import SearchBar from '../SearchBar'
 import styles from './index.module.css'
 import Image from 'next/image'
+import useCrypto from '../../hooks/useCrypto'
 
 const Header = () => {
-  const price = 32539.62
-  const high = 32704
-  const low = 31823
-
-  const openDay = 39492.8
-  const volumeHour = 1270.42
-  const marketCapital = 763.11
-  const changeDay = 2.95 / 100
-
-  const parsedPrice = `$ ${price.toLocaleString()}`
-  const parsedHighPrice = high.toLocaleString()
-  const parsedLowPrice = low.toLocaleString()
-
-  const parsedOpenDay = `$ ${openDay.toLocaleString()}`
-  const parsedVolumeHour = `Ƀ ${volumeHour.toLocaleString()}`
-  const parsedMarketCapital = `$ ${marketCapital.toLocaleString()} B`
-  const parsedChangeDay = changeDay.toLocaleString([], { style: 'percent', minimumFractionDigits: 2 })
+  const { cryptos } = useCrypto()
+  const headerCrypto = (cryptos && cryptos[0]) || {}
+  const { id, name, imageUrl, price, volumeHour, changeDay, lowDay, highDay, openDay, marketCapital } = headerCrypto
 
   return (
     <header className={styles.header}>
@@ -29,36 +17,31 @@ const Header = () => {
           <div className={styles.main}>
             <div className={styles.logoContainer}>
               <div className={styles.logo}>
-                <Image
-                  height={42}
-                  width={42}
-                  src="https://cryptocompare.com/media/37746251/btc.png"
-                  alt="Bitcoin logo"
-                />
+                <Image height={42} width={42} src={`https://cryptocompare.com/${imageUrl}`} alt={`${name} - ${id}`} />
               </div>
-              <span className={styles.shortName}>BTC</span>
+              <span className={styles.shortName}>{id}</span>
             </div>
-            <span className={styles.price}>{parsedPrice}</span>
+            <span className={styles.price}>{price}</span>
             <div className={styles.highLowContainer}>
               <div className={styles.highPriceContainer}>
                 <ChevronUp className={styles.highPriceIcon} />
-                <span className={styles.highPrice}>{parsedHighPrice}</span>
+                <span className={styles.highPrice}>{highDay}</span>
               </div>
               <div className={styles.lowPriceContainer}>
                 <ChevronDown className={styles.lowPriceIcon} />
-                <span className={styles.lowPrice}>{parsedLowPrice}</span>
+                <span className={styles.lowPrice}>{lowDay}</span>
               </div>
             </div>
           </div>
           <div className={styles.detailContainer}>
             <label className={styles.label}>Open day</label>
-            <span className={styles.value}>{parsedOpenDay}</span>
+            <span className={styles.value}>{openDay}</span>
             <label className={styles.label}>Volume hour</label>
-            <span className={styles.value}>{parsedVolumeHour}</span>
+            <span className={styles.value}>{volumeHour}</span>
             <label className={styles.label}>Market capital</label>
-            <span className={styles.value}>{parsedMarketCapital}</span>
+            <span className={styles.value}>{marketCapital}</span>
             <label className={styles.label}>Change day</label>
-            <span className={styles.value}>{parsedChangeDay}</span>
+            <span className={styles.value}>{changeDay}</span>
           </div>
         </div>
       </div>

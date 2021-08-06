@@ -1,0 +1,51 @@
+.container {
+  box-shadow: var(--light-shadow);
+  padding: 0.3rem 0.7rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.imageContainer {
+  width: max-content;
+  display: grid;
+  place-items: center;
+}
+
+.nameInfo {
+  margin-inline: 0.3rem;
+}
+
+.name {
+  color: var(--text);
+  font-size: 1rem;
+  margin-inline-end: 0.3rem;
+}
+
+.id {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.priceInfo {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.price {
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+}
+
+.chevronUp {
+  stroke: var(--success);
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.chevronDown {
+  stroke: var(--warning);
+  width: 1.125rem;
+  height: 1.125rem;
+}

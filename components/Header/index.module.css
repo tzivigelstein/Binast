@@ -15,6 +15,7 @@
   backdrop-filter: blur(0.25rem);
   display: grid;
   place-items: center;
+  min-width: 330px;
 }
 
 .headingContainer {
