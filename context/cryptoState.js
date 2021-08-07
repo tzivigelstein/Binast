@@ -40,7 +40,7 @@ const CryptoState = ({ children }) => {
 
   const setSelectedCrypto = cryptoID => {
     const selectedCrypto = state.cryptos.find(({ id }) => id === cryptoID)
-    console.log({ cryptoID })
+
     dispatch({
       type: SET_SELECTED_CRYPTO,
       payload: selectedCrypto,

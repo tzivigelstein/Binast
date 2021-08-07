@@ -9,13 +9,13 @@
 }
 
 .headerFilter {
+  min-width: 330px;
   width: 100%;
   min-height: 300px;
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(0.25rem);
   display: grid;
   place-items: center;
-  min-width: 330px;
 }
 
 .headingContainer {
