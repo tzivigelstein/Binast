@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { ChevronDown, ChevronUp } from '../Icons'
 import SearchBar from '../SearchBar'
 import styles from './index.module.css'
@@ -6,9 +5,8 @@ import Image from 'next/image'
 import useCrypto from '../../hooks/useCrypto'
 
 const Header = () => {
-  const { cryptos } = useCrypto()
-  const headerCrypto = (cryptos && cryptos[0]) || {}
-  const { id, name, imageUrl, price, volumeHour, changeDay, lowDay, highDay, openDay, marketCapital } = headerCrypto
+  const { selectedCrypto } = useCrypto()
+  const { id, name, imageUrl, price, volumeHour, changeDay, lowDay, highDay, openDay, marketCapital } = selectedCrypto
 
   return (
     <header className={styles.header}>
@@ -19,7 +17,7 @@ const Header = () => {
               <div className={styles.logo}>
                 <Image height={42} width={42} src={`https://cryptocompare.com/${imageUrl}`} alt={`${name} - ${id}`} />
               </div>
-              <span className={styles.shortName}>{id}</span>
+              <span translate="no" className={styles.shortName}>{id}</span>
             </div>
             <span className={styles.price}>{price}</span>
             <div className={styles.highLowContainer}>

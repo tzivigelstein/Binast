@@ -14,7 +14,7 @@ const SearchBar = () => {
       <Search className={styles.icon} />
       <input className={styles.input} placeholder="Search" type="text" />
       <div className={styles.selectContainer}>
-        <select onClick={handleSelectClick} className={styles.select} defaultValue="USD" name="" id="">
+        <select translate="no" onClick={handleSelectClick} className={styles.select} defaultValue="USD" name="" id="">
           <option value="USD">USD</option>
           <option value="ARS">ARS</option>
           <option value="EUR">EUR</option>

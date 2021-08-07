@@ -4,8 +4,9 @@
   --background: #fafafa;
   --secondary: #ffc453;
   --text: #232323;
+  --text-secondary: rgba(0, 0, 0, 75%);
+  --text-tertiary: rgba(0, 0, 0, 60%);
   --white-text: #fff;
-  --text-secondary: rgba(35, 35, 35, 75%);
   --success: #26a69a;
   --warning: #f44336;
   --light-shadow: 0 0.188rem 1.25rem 0.125rem rgb(64 62 67 / 8%);

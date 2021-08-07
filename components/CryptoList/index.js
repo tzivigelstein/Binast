@@ -1,14 +1,16 @@
-import {} from 'react'
+import { useEffect } from 'react'
 import styles from './index.module.css'
 import CryptoChip from '../CryptoChip'
 import useCrypto from '../../hooks/useCrypto'
 
 const CryptoList = () => {
-  const { cryptos } = useCrypto()
+  const { cryptos, selectedCrypto } = useCrypto()
+
+  const filterCryptosBySelected = ({ id }) => id !== selectedCrypto.id
 
   return (
     <ul className={styles.list}>
-      {cryptos && cryptos.slice(1).map(crypto => <CryptoChip key={crypto.id} data={crypto} />)}
+      {cryptos && cryptos.filter(filterCryptosBySelected).map(crypto => <CryptoChip key={crypto.id} data={crypto} />)}
     </ul>
   )
 }

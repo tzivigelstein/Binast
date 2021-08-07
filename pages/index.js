@@ -1,10 +1,8 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
-import Alert from '../components/Alert'
-import { Bolt } from '../components/Icons'
 import Header from '../components/Header'
 import CryptoList from '../components/CryptoList'
-import { CryptoProvider } from '../context/cryptoContext'
+import CryptoState from '../context/cryptoState'
 
 export default function Home() {
   return (
@@ -15,12 +13,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <CryptoProvider>
-          <Alert Icon={Bolt} />
+        <CryptoState>
           <Navbar />
           <Header />
           <CryptoList />
-        </CryptoProvider>
+        </CryptoState>
       </div>
     </div>
   )
