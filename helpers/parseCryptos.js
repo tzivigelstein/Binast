@@ -15,14 +15,13 @@ export default function parseCryptos(cryptos) {
     return {
       imageUrl: IMAGEURL.slice(1),
       price: `$ ${PRICE.toLocaleString()}`,
-      marketCapitall: MKTCAP.toLocaleString([], { maximumSignificantDigits: 1 }),
       marketCapital: `$ ${millify(MKTCAP, { precision: 2, space: true })}`,
       changeDay: (CHANGEPCTDAY / 100).toLocaleString([], { style: 'percent', minimumFractionDigits: 2 }),
       openDay: `$ ${OPENDAY.toLocaleString()}`,
       volumeHour: `${FROMSYMBOL} ${millify(VOLUMEHOUR, { precision: 2, space: true })}`,
       up: PRICE > OPENDAY,
-      highDay: `$ ${HIGHDAY.toLocaleString([], { maximumFractionDigits: 0 })}`,
-      lowDay: `$ ${LOWDAY.toLocaleString([], { maximumFractionDigits: 0 })}`,
+      highDay: `$ ${HIGHDAY.toLocaleString([], { maximumFractionDigits: HIGHDAY < 10 ? 2 : 0 })}`,
+      lowDay: `$ ${LOWDAY.toLocaleString([], { maximumFractionDigits: LOWDAY < 10 ? 2 : 0 })}`,
       name: FullName,
       id: Name,
     }
