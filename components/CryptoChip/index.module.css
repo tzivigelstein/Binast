@@ -24,7 +24,7 @@
 }
 
 .nameInfo {
-  margin-inline: 0.3rem;
+  margin: 0 0.3rem;
   display: flex;
   align-items: center;
 }
@@ -33,7 +33,7 @@
   color: var(--text);
   font-size: 1rem;
   margin: 0;
-  margin-inline-end: 0.3rem;
+  margin-right: 0.3rem;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
