@@ -17,7 +17,9 @@ const Header = () => {
               <div className={styles.logo}>
                 <Image height={42} width={42} src={`https://cryptocompare.com/${imageUrl}`} alt={`${name} - ${id}`} />
               </div>
-              <span translate="no" className={styles.shortName}>{id}</span>
+              <span translate="no" className={styles.shortName}>
+                {id}
+              </span>
             </div>
             <span className={styles.price}>{price}</span>
             <div className={styles.highLowContainer}>
@@ -32,20 +34,26 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.detailContainer}>
-            <label className={styles.label}>Open day</label>
-            <span className={styles.value}>{openDay}</span>
-            <label className={styles.label}>Volume hour</label>
-            <span className={styles.value}>{volumeHour}</span>
-            <label className={styles.label}>Market capital</label>
-            <span className={styles.value}>{marketCapital}</span>
-            <label className={styles.label}>Change day</label>
-            <span className={styles.value}>{changeDay}</span>
+            <div className={styles.valueContainer}>
+              <label className={styles.label}>Open day</label>
+              <span className={styles.value}>{openDay}</span>
+            </div>
+            <div className={styles.valueContainer}>
+              <label className={styles.label}>Volume hour</label>
+              <span className={styles.value}>{volumeHour}</span>
+            </div>
+            <div className={styles.valueContainer}>
+              <label className={styles.label}>Market capital</label>
+              <span className={styles.value}>{marketCapital}</span>
+            </div>
+            <div className={styles.valueContainer}>
+              <label className={styles.label}>Change day</label>
+              <span className={styles.value}>{changeDay}</span>
+            </div>
           </div>
         </div>
       </div>
-      <div className={styles.searchBarContainer}>
-        <SearchBar />
-      </div>
+      <div className={styles.searchBarContainer}>{/* <SearchBar /> */}</div>
     </header>
   )
 }
