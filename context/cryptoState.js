@@ -12,6 +12,7 @@ const CryptoState = ({ children }) => {
     cryptos: null,
     loading: false,
     selectedCrypto: DEFAULT_SELECTED_CRYPTO,
+    error: null,
   }
 
   const [state, dispatch] = useReducer(cryptoReducer, initialState)
@@ -31,7 +32,10 @@ const CryptoState = ({ children }) => {
           payload: parsedData,
         })
       } else {
-        throw new Error('Something went wrong')
+        dispatch({
+          type: GET_CRYPTOS_ERROR,
+          payload: 'Something went wrong',
+        })
       }
     } catch (error) {
       console.error(error)

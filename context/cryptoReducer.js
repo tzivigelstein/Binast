@@ -1,4 +1,4 @@
-import { LOADING, GET_CRYPTOS_SUCCESS, SET_SELECTED_CRYPTO } from './types'
+import { LOADING, GET_CRYPTOS_SUCCESS, GET_CRYPTOS_ERROR, SET_SELECTED_CRYPTO } from './types'
 
 const cryptoReducer = (state, { type, payload }) => {
   const cryptoTypes = {
@@ -12,6 +12,11 @@ const cryptoReducer = (state, { type, payload }) => {
       cryptos: payload,
       loading: false,
       selectedCrypto: payload[0],
+    },
+
+    [GET_CRYPTOS_ERROR]: {
+      ...state,
+      error: payload,
     },
 
     [SET_SELECTED_CRYPTO]: {
