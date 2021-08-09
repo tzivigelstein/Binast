@@ -10,6 +10,7 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <span role="img" aria-label="Electronic circuit - Header"></span>
       <div className={styles.headerFilter}>
         <div className={styles.headingContainer}>
           <div className={styles.main}>
@@ -53,7 +54,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className={styles.searchBarContainer}>{/* <SearchBar /> */}</div>
+      {/* <div className={styles.searchBarContainer}><SearchBar /></div> */}
     </header>
   )
 }
