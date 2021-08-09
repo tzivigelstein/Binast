@@ -15,6 +15,11 @@
   --search-bar-height: 2.8125rem;
 }
 
+@font-face {
+  font-family: Quantum;
+  src: url(/assets/Quantum.otf);
+}
+
 * {
   font-family: sans-serif;
   box-sizing: border-box;

@@ -10,7 +10,7 @@
 }
 
 .title {
-  /* font-family: ; */
+  font-family: 'Quantum', sans-serif;
   color: var(--white-text);
   margin: 0;
   font-size: 1.8rem;
@@ -19,4 +19,5 @@
 
 .titleAccent {
   color: var(--secondary);
+  font-family: inherit;
 }
