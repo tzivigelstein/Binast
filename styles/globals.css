@@ -9,7 +9,7 @@
   --white-text: #fff;
   --success: #26a69a;
   --warning: #f44336;
-  --light-shadow: 0 0.188rem 1.25rem 0.125rem rgb(64 62 67 / 8%);
+  --light-shadow: 0 0.188rem 1rem -0.125rem rgb(64 62 67 / 8%);
   --normal-shadow: 0 0.188rem 1.25rem 0.125rem rgb(64 62 67 / 16%);
   --dark-shadow: 0 0.188rem 1.25rem 0.125rem rgb(64 62 67 / 22%);
   --search-bar-height: 2.8125rem;

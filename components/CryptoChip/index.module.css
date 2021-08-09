@@ -1,7 +1,7 @@
 .container {
   box-shadow: var(--light-shadow);
-  padding: 0.3rem 0.7rem;
-  border-radius: 1rem;
+  padding: 0.5rem;
+  border-radius: 999rem;
   display: flex;
   align-items: center;
   border: none;
