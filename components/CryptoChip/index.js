@@ -15,6 +15,7 @@ const CryptoChip = ({ data }) => {
     e.preventDefault()
 
     setSelectedCrypto(id)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -26,7 +27,9 @@ const CryptoChip = ({ data }) => {
         <p translate="no" className={styles.name}>
           {name}
         </p>
-        <span translate="no" className={styles.id}>{id}</span>
+        <span translate="no" className={styles.id}>
+          {id}
+        </span>
       </div>
       <div className={styles.priceInfo}>
         <span className={styles.price}>{price}</span>
