@@ -13,21 +13,21 @@ export default function Home() {
         <title>Binast</title>
         {/*Search Engine */}
         <meta name="description" content="Binast offers live changing crypto data for enthusiasts of trading" />
-        <meta name="image" content="/assets/flyer.png" />
+        <meta name="image" content="assets/flyer.png" />
         {/* Schema.org for Google*/}
         <meta itemProp="name" content="Binast" />
         <meta itemProp="description" content="Binast offers live changing crypto data for enthusiasts of trading" />
-        <meta itemProp="image" content="/assets/flyer.png" />
+        <meta itemProp="image" content="assets/flyer.png" />
         {/* Twitter  */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Binast" />
         <meta name="twitter:description" content="Binast offers live changing crypto data for enthusiasts of trading" />
         <meta name="twitter:creator" content="@tzivigelstein" />
-        <meta name="twitter:image:src" content="/assets/flyer.png" />
+        <meta name="twitter:image:src" content="assets/flyer.png" />
         {/* Open Graph general (Facebook, Pinterest & Google+) */}
         <meta name="og:title" content="Binast" />
         <meta name="og:description" content="Binast offers live changing crypto data for enthusiasts of trading" />
-        <meta name="og:image" content="/assets/flyer.png" />
+        <meta name="og:image" content="assets/flyer.png" />
         <meta name="og:url" content="https://binast.vercel.app" />
         <meta name="og:site_name" content="Binast" />
         <meta name="og:locale" content="en_US" />
