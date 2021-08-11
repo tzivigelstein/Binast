@@ -3,6 +3,7 @@ import SearchBar from '../SearchBar'
 import styles from './index.module.css'
 import Image from 'next/image'
 import useCrypto from '../../hooks/useCrypto'
+import { imagePlaceholder } from '../../helpers/imagePlaceholder'
 
 const Header = () => {
   const { selectedCrypto } = useCrypto()
@@ -16,7 +17,15 @@ const Header = () => {
           <div className={styles.main}>
             <div className={styles.logoContainer}>
               <div className={styles.logo}>
-                <Image height={42} width={42} src={`https://cryptocompare.com/${imageUrl}`} alt={`${name} - ${id}`} />
+                {/* <ImageLoader /> */}
+                <Image
+                  placeholder="blur"
+                  blurDataURL={imagePlaceholder}
+                  height={42}
+                  width={42}
+                  src={`https://cryptocompare.com/${imageUrl}`}
+                  alt={`${name} - ${id}`}
+                />
               </div>
               <span translate="no" className={styles.shortName}>
                 {id}

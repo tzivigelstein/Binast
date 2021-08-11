@@ -3,6 +3,8 @@ import styles from './index.module.css'
 import Image from 'next/image'
 import { ChevronDown, ChevronUp } from '../Icons'
 import useCrypto from '../../hooks/useCrypto'
+import { imagePlaceholder } from '../../helpers/imagePlaceholder'
+
 
 const CryptoChip = ({ data }) => {
   const { imageUrl, name, price, up, id } = data
@@ -21,7 +23,7 @@ const CryptoChip = ({ data }) => {
   return (
     <button onClick={handleClick} className={styles.container}>
       <div className={styles.imageContainer}>
-        <Image height={42} width={42} src={url} alt={`${name} | ${id}`} />
+        <Image placeholder="blur" blurDataURL={imagePlaceholder} height={42} width={42} src={url} alt={`${name} | ${id}`} />
       </div>
       <div className={styles.nameInfo}>
         <p translate="no" className={styles.name}>
