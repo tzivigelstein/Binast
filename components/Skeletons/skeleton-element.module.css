@@ -1,0 +1,39 @@
+.skeleton {
+  background: var(--loading-background);
+  background-size: var(--loading-background-size);
+  animation: pulse 3s linear infinite;
+  border-radius: 0.4rem;
+  padding: 0.7rem;
+  margin: 0.3rem;
+}
+
+.roundThumb {
+  border-radius: 50%;
+  width: 2.625rem;
+  height: 2.625rem;
+}
+
+.text {
+  width: 100%;
+  height: 1rem;
+  min-width: 3.5rem;
+}
+
+.title {
+  width: 40%;
+  height: 1.5rem;
+}
+
+.thumb {
+  width: 11.25rem;
+  height: 11.25rem;
+}
+
+@keyframes pulse {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -135% 0;
+  }
+}

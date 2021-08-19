@@ -13,6 +13,8 @@
   --normal-shadow: 0 0.188rem 1.25rem 0.125rem rgb(64 62 67 / 16%);
   --dark-shadow: 0 0.188rem 1.25rem 0.125rem rgb(64 62 67 / 22%);
   --search-bar-height: 2.8125rem;
+  --loading-background: linear-gradient(-90deg, #e8e8e8 0%, #f8f8f8 50%, #e8e8e8 100%);
+  --loading-background-size: 400% 400%;
 }
 
 @font-face {

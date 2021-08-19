@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  justify-content: space-between;
+}
+
+.imagePriceContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}

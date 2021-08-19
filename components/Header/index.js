@@ -3,9 +3,10 @@ import SearchBar from '../SearchBar'
 import styles from './index.module.css'
 import Image from 'next/image'
 import useCrypto from '../../hooks/useCrypto'
+import SkeletonElement from '../Skeletons/SkeletonElement'
 
 const Header = () => {
-  const { selectedCrypto } = useCrypto()
+  const { selectedCrypto, loading } = useCrypto()
   const { id, name, imageUrl, price, volumeHour, changeDay, lowDay, highDay, openDay, marketCapital } = selectedCrypto
 
   return (
@@ -15,41 +16,89 @@ const Header = () => {
         <div className={styles.headingContainer}>
           <div className={styles.main}>
             <div className={styles.logoContainer}>
-              <div className={styles.logo}>
-                <Image height={42} width={42} src={`https://cryptocompare.com/${imageUrl}`} alt={`${name} - ${id}`} />
-              </div>
-              <span translate="no" className={styles.shortName}>
-                {id}
-              </span>
+              {loading ? (
+                <SkeletonElement type="roundThumb" style={{ flex: '1 0 auto' }} />
+              ) : (
+                <div className={styles.logo}>
+                  <Image height={42} width={42} src={`https://cryptocompare.com/${imageUrl}`} alt={`${name} - ${id}`} />
+                </div>
+              )}
+              {loading ? (
+                <SkeletonElement style={{ height: '1.3125rem' }} type="text" />
+              ) : (
+                <span translate="no" className={styles.shortName}>
+                  {id}
+                </span>
+              )}
             </div>
-            <span className={styles.price}>{price}</span>
+            {loading ? (
+              <SkeletonElement style={{ height: '2.5rem', width: '70%' }} type="title" />
+            ) : (
+              <span className={styles.price}>{price}</span>
+            )}
             <div className={styles.highLowContainer}>
               <div className={styles.highPriceContainer}>
-                <ChevronUp className={styles.highPriceIcon} />
-                <span className={styles.highPrice}>{highDay}</span>
+                {loading ? (
+                  <SkeletonElement style={{ height: '1.3125rem' }} type="text" />
+                ) : (
+                  <>
+                    <ChevronUp className={styles.highPriceIcon} />
+                    <span className={styles.highPrice}>{highDay}</span>
+                  </>
+                )}
               </div>
               <div className={styles.lowPriceContainer}>
-                <ChevronDown className={styles.lowPriceIcon} />
-                <span className={styles.lowPrice}>{lowDay}</span>
+                {loading ? (
+                  <SkeletonElement style={{ height: '1.3125rem' }} type="text" />
+                ) : (
+                  <>
+                    <ChevronDown className={styles.lowPriceIcon} />
+                    <span className={styles.lowPrice}>{lowDay}</span>
+                  </>
+                )}
               </div>
             </div>
           </div>
           <div className={styles.detailContainer}>
             <div className={styles.valueContainer}>
-              <label className={styles.label}>Open day</label>
-              <span className={styles.value}>{openDay}</span>
+              {loading ? (
+                <SkeletonElement style={{ height: '1.1875rem' }} type="text" />
+              ) : (
+                <>
+                  <label className={styles.label}>Open day</label>
+                  <span className={styles.value}>{openDay}</span>
+                </>
+              )}
             </div>
             <div className={styles.valueContainer}>
-              <label className={styles.label}>Volume hour</label>
-              <span className={styles.value}>{volumeHour}</span>
+              {loading ? (
+                <SkeletonElement style={{ height: '1.1875rem' }} type="text" />
+              ) : (
+                <>
+                  <label className={styles.label}>Volume hour</label>
+                  <span className={styles.value}>{volumeHour}</span>
+                </>
+              )}
             </div>
             <div className={styles.valueContainer}>
-              <label className={styles.label}>Market capital</label>
-              <span className={styles.value}>{marketCapital}</span>
+              {loading ? (
+                <SkeletonElement style={{ height: '1.1875rem' }} type="text" />
+              ) : (
+                <>
+                  <label className={styles.label}>Market capital</label>
+                  <span className={styles.value}>{marketCapital}</span>
+                </>
+              )}
             </div>
             <div className={styles.valueContainer}>
-              <label className={styles.label}>Change day</label>
-              <span className={styles.value}>{changeDay}</span>
+              {loading ? (
+                <SkeletonElement style={{ height: '1.1875rem' }} type="text" />
+              ) : (
+                <>
+                  <label className={styles.label}>Change day</label>
+                  <span className={styles.value}>{changeDay}</span>
+                </>
+              )}
             </div>
           </div>
         </div>

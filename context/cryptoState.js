@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react'
 import CryptoContext from './cryptoContext'
 import cryptoReducer from './cryptoReducer'
 import parseCryptos from '../helpers/parseCryptos'
-import { GET_CRYPTOS_SUCCESS, SET_SELECTED_CRYPTO } from './types'
+import { GET_CRYPTOS_SUCCESS, SET_SELECTED_CRYPTO, LOADING } from './types'
 
 const DEFAULT_CURRENCY = 'USD'
 const DEFAULT_SELECTED_CRYPTO = {}
@@ -10,7 +10,7 @@ const DEFAULT_SELECTED_CRYPTO = {}
 const CryptoState = ({ children }) => {
   const initialState = {
     cryptos: null,
-    loading: false,
+    loading: false, // Change to false
     selectedCrypto: DEFAULT_SELECTED_CRYPTO,
     error: null,
   }
@@ -22,15 +22,22 @@ const CryptoState = ({ children }) => {
   }, [])
 
   const getMostCapitalizedCryptos = async (limit, currency = DEFAULT_CURRENCY) => {
+    dispatch({
+      type: LOADING,
+    })
     try {
-      const query = await fetch(`https://min-api.cryptocompare.com/data/top/mktcapfull?limit=${limit}&tsym=${currency}`)
+      const url = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=${limit}&tsym=${currency}`
+      const query = await fetch(url)
+
       if (await query.ok) {
         const data = await query.json()
         const parsedData = parseCryptos(data.Data)
-        dispatch({
-          type: GET_CRYPTOS_SUCCESS,
-          payload: parsedData,
-        })
+        setTimeout(async () => {
+          dispatch({
+            type: GET_CRYPTOS_SUCCESS,
+            payload: parsedData,
+          })
+        }, 3000)
       } else {
         dispatch({
           type: GET_CRYPTOS_ERROR,

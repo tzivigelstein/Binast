@@ -11,11 +11,12 @@ const cryptoReducer = (state, { type, payload }) => {
       ...state,
       cryptos: payload,
       loading: false,
-      selectedCrypto: payload[0],
+      selectedCrypto: payload && payload[0],
     },
 
     [GET_CRYPTOS_ERROR]: {
       ...state,
+      loading: false,
       error: payload,
     },
 
