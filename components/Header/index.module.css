@@ -67,7 +67,6 @@
 .highPriceContainer {
   display: flex;
   align-items: center;
-  width: 50%;
 }
 
 .highPriceIcon {
@@ -84,7 +83,6 @@
 .lowPriceContainer {
   display: flex;
   align-items: center;
-  width: 50%;
 }
 
 .lowPriceIcon {
