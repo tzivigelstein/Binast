@@ -4,6 +4,7 @@ import styles from './index.module.css'
 import Image from 'next/image'
 import useCrypto from '../../hooks/useCrypto'
 import SkeletonElement from '../Skeletons/SkeletonElement'
+import { imagePlaceholder } from '../../helpers/imagePlaceholder'
 
 const Header = () => {
   const { selectedCrypto, loading } = useCrypto()
@@ -20,7 +21,14 @@ const Header = () => {
                 <SkeletonElement type="roundThumb" style={{ flex: '1 0 auto' }} />
               ) : (
                 <div className={styles.logo}>
-                  <Image height={42} width={42} src={`https://cryptocompare.com/${imageUrl}`} alt={`${name} - ${id}`} />
+                  <Image
+                    placeholder="blur"
+                    blurDataURL={imagePlaceholder}
+                    height={42}
+                    width={42}
+                    src={`https://cryptocompare.com/${imageUrl}`}
+                    alt={`${name} - ${id}`}
+                  />
                 </div>
               )}
               {loading ? (

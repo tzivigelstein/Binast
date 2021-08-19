@@ -21,6 +21,8 @@
   width: max-content;
   display: grid;
   place-items: center;
+  border-radius: 100rem;
+  overflow: hidden;
 }
 
 .nameInfo {

@@ -47,6 +47,7 @@
   height: 42px;
   border-radius: 100rem;
   margin-right: 0.5rem;
+  overflow: hidden;
 }
 
 .price {
