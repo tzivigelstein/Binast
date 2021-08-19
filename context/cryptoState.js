@@ -32,12 +32,11 @@ const CryptoState = ({ children }) => {
       if (await query.ok) {
         const data = await query.json()
         const parsedData = parseCryptos(data.Data)
-        setTimeout(async () => {
-          dispatch({
-            type: GET_CRYPTOS_SUCCESS,
-            payload: parsedData,
-          })
-        }, 3000)
+
+        dispatch({
+          type: GET_CRYPTOS_SUCCESS,
+          payload: parsedData,
+        })
       } else {
         dispatch({
           type: GET_CRYPTOS_ERROR,
