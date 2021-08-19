@@ -1,6 +1,6 @@
 import styles from './index.module.css'
 
-const Alert = ({ Icon, message = 'Try our new dark mode' }) => {
+const Alert = ({ Icon, message = 'Example text for the alert' }) => {
   return (
     <div className={styles.alertWrapper}>
       <div className={styles.alertContainer}>

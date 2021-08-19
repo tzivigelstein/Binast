@@ -1,4 +1,5 @@
 export const LOADING = 'LOADING'
+export const SET_ERROR = 'SET_ERROR'
 
 export const GET_CRYPTOS = 'GET_CRYPTOS'
 export const GET_CRYPTOS_SUCCESS = 'GET_CRYPTOS_SUCCESS'

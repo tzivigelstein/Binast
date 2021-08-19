@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react'
 import CryptoContext from './cryptoContext'
 import cryptoReducer from './cryptoReducer'
 import parseCryptos from '../helpers/parseCryptos'
-import { GET_CRYPTOS_SUCCESS, SET_SELECTED_CRYPTO, LOADING } from './types'
+import { GET_CRYPTOS_SUCCESS, SET_SELECTED_CRYPTO, LOADING, SET_ERROR } from './types'
 
 const DEFAULT_CURRENCY = 'USD'
 const DEFAULT_SELECTED_CRYPTO = {}
@@ -10,7 +10,7 @@ const DEFAULT_SELECTED_CRYPTO = {}
 const CryptoState = ({ children }) => {
   const initialState = {
     cryptos: null,
-    loading: false, // Change to false
+    loading: false,
     selectedCrypto: DEFAULT_SELECTED_CRYPTO,
     error: null,
   }
@@ -23,12 +23,16 @@ const CryptoState = ({ children }) => {
 
   const getMostCapitalizedCryptos = async (limit, currency = DEFAULT_CURRENCY) => {
     dispatch({
+      type: SET_ERROR,
+      payload: null,
+    })
+    dispatch({
       type: LOADING,
     })
     try {
       const url = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=${limit}&tsym=${currency}`
-      const query = await fetch(url)
 
+      const query = await fetch(url)
       if (await query.ok) {
         const data = await query.json()
         const parsedData = parseCryptos(data.Data)
@@ -45,6 +49,10 @@ const CryptoState = ({ children }) => {
       }
     } catch (error) {
       console.error(error)
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      })
     }
   }
 
@@ -63,6 +71,7 @@ const CryptoState = ({ children }) => {
         cryptos: state.cryptos,
         loading: state.loading,
         selectedCrypto: state.selectedCrypto,
+        error: state.error,
         getMostCapitalizedCryptos,
         setSelectedCrypto,
       }}

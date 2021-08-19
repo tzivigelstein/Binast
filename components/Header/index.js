@@ -1,5 +1,4 @@
 import { ChevronDown, ChevronUp } from '../Icons'
-import SearchBar from '../SearchBar'
 import styles from './index.module.css'
 import Image from 'next/image'
 import useCrypto from '../../hooks/useCrypto'

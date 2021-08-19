@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Header from '../components/Header'
 import CryptoList from '../components/CryptoList'
 import CryptoState from '../context/cryptoState'
+import ErrorState from '../context/error/errorState'
 
 export default function Home() {
   return (
@@ -53,9 +54,11 @@ export default function Home() {
       </Head>
       <>
         <CryptoState>
-          <Navbar />
-          <Header />
-          <CryptoList />
+          <ErrorState>
+            <Navbar />
+            <Header />
+            <CryptoList />
+          </ErrorState>
         </CryptoState>
       </>
     </>
