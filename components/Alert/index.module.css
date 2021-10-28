@@ -6,6 +6,10 @@
   height: max-content;
   padding: 1rem;
   z-index: 3;
+  transition: 0.3s ease all;
+  border: none;
+  background: transparent;
+  outline: none;
 }
 
 .alertContainer {
@@ -36,4 +40,23 @@
   margin: 0;
   font-size: 1rem;
   color: var(--white-text);
+}
+
+.alertEnter {
+  background-color: green;
+  right: -100%;
+}
+
+.alertEnterActive {
+  background-color: violet;
+  right: 0;
+}
+
+.alertExit {
+  background-color: blue;
+}
+
+.alertExitActive {
+  background-color: brown;
+  right: -100%;
 }
