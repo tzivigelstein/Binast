@@ -14,8 +14,8 @@ const ErrorState = ({ children }) => {
 
   return (
     <errorContext.Provider value={{}}>
-      {error && <Alert Icon={Error} message={error} />}
-      {!online && <Alert Icon={Offline} message="You are offline" />}
+      <Alert active={error !== null} Icon={Error} message={error} />
+      <Alert active={!online} Icon={Offline} message="You are offline" />
       {children}
     </errorContext.Provider>
   )
