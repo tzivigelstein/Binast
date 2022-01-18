@@ -1,19 +1,19 @@
 .container {
-  box-shadow: var(--light-shadow);
   padding: 0.5rem;
-  border-radius: 999rem;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   border: none;
   outline: none;
-  background-color: var(--background);
+  background-color: transparent;
+  border: 2px solid transparent;
   cursor: pointer;
-  transition: 0.3s ease box-shadow;
+  transition: 0.3s ease border-color;
 }
 
 @media (hover) {
   .container:hover {
-    box-shadow: var(--normal-shadow);
+    border-color: var(--primary-light);
   }
 }
 
