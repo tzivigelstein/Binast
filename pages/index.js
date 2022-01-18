@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Head>
         {/* COMMON TAGS */}
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <title>Binast</title>
         {/*Search Engine */}
         <meta name="description" content="Binast offers live changing crypto data for enthusiasts of trading" />
