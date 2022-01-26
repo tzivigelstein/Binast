@@ -16,7 +16,7 @@ const CryptoChip = ({ data }) => {
   const handleClick = e => {
     e.preventDefault()
 
-    setSelectedCrypto(id)
+    setSelectedCrypto(data)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
