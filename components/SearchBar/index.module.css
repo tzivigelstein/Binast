@@ -1,3 +1,11 @@
+.wrapper {
+  display: grid;
+  background-color: #fff;
+  border-radius: calc(45.59px / 2) calc(45.59px / 2) 0 0;
+  place-items: center;
+  position: relative;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -6,6 +14,7 @@
   border-radius: 100rem;
   width: max-content;
   background-color: var(--background);
+  z-index: 1;
 }
 
 .icon {
@@ -14,6 +23,7 @@
   height: 1.125rem;
   stroke: var(--text);
   margin-right: 0.3rem;
+  padding: 0.3rem;
 }
 
 .input {
@@ -41,6 +51,7 @@
   width: 7ch;
   height: 100%;
   font-size: 1rem;
+  outline: none;
   cursor: pointer;
   line-height: 1.1;
   background-color: var(--background);
@@ -62,4 +73,52 @@
   position: absolute;
   right: 0;
   pointer-events: none;
+}
+
+.resultsList {
+  --border-radius: calc(45.59px / 2);
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--dark-shadow);
+  display: none;
+  padding: calc(var(--search-bar-height) + 1rem) 1rem 1rem 1rem;
+  place-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.wrapper:focus-within .resultsList {
+  display: grid;
+}
+
+.resultsForHelper {
+  font-size: 0.9rem;
+  padding: 0;
+  text-align: left;
+  margin: 0;
+  width: 100%;
+  color: #999;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.coinDataContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
