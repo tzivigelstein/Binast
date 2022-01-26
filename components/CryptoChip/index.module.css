@@ -23,6 +23,7 @@
   place-items: center;
   border-radius: 100rem;
   overflow: hidden;
+  z-index: -1;
 }
 
 .nameInfo {
