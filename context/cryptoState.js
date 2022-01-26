@@ -12,7 +12,7 @@ const CryptoState = ({ children }) => {
     cryptos: null,
     loading: false,
     selectedCrypto: DEFAULT_SELECTED_CRYPTO,
-    error: null,
+    error: null
   }
 
   const [state, dispatch] = useReducer(cryptoReducer, initialState)
@@ -24,10 +24,10 @@ const CryptoState = ({ children }) => {
   const getMostCapitalizedCryptos = async (limit, currency = DEFAULT_CURRENCY) => {
     dispatch({
       type: SET_ERROR,
-      payload: null,
+      payload: null
     })
     dispatch({
-      type: LOADING,
+      type: LOADING
     })
     try {
       const url = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=${limit}&tsym=${currency}`
@@ -39,29 +39,27 @@ const CryptoState = ({ children }) => {
 
         dispatch({
           type: GET_CRYPTOS_SUCCESS,
-          payload: parsedData,
+          payload: parsedData
         })
       } else {
         dispatch({
           type: GET_CRYPTOS_ERROR,
-          payload: 'Something went wrong',
+          payload: 'Something went wrong'
         })
       }
     } catch (error) {
       console.error(error)
       dispatch({
         type: SET_ERROR,
-        payload: error.message,
+        payload: error.message
       })
     }
   }
 
-  const setSelectedCrypto = cryptoID => {
-    const selectedCrypto = state.cryptos.find(({ id }) => id === cryptoID)
-
+  const setSelectedCrypto = crypto => {
     dispatch({
       type: SET_SELECTED_CRYPTO,
-      payload: selectedCrypto,
+      payload: crypto
     })
   }
 
@@ -73,7 +71,7 @@ const CryptoState = ({ children }) => {
         selectedCrypto: state.selectedCrypto,
         error: state.error,
         getMostCapitalizedCryptos,
-        setSelectedCrypto,
+        setSelectedCrypto
       }}
     >
       {children}
