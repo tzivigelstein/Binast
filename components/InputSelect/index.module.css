@@ -1,0 +1,39 @@
+.selectContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 0.25em 0.5em;
+  outline: none;
+  margin: 0;
+  width: 7ch;
+  height: 100%;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: var(--background);
+}
+
+.select::-ms-expand {
+  display: none;
+}
+
+.select:focus-within {
+  border: 0.125rem solid var(--dark-primary);
+}
+
+.select:disabled {
+  cursor: not-allowed;
+}
+
+.chevron {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+}
