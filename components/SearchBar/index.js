@@ -6,6 +6,7 @@ import debounce from '../../helpers/debounce'
 import Spinner from '../Spinner'
 import useCrypto from '../../hooks/useCrypto'
 import { parseData } from '../../helpers/parseCryptos'
+import InputSelect from '../InputSelect'
 
 const SEARCH_AFTER_500_MS = 500
 
@@ -14,19 +15,9 @@ const SearchBar = () => {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [isSelectOpen, setIsSelectOpen] = useState(false)
+
   const [selectedCurrency, setSelectedCurrency] = useState('USD')
   const [search, setSearch] = useState('')
-
-  const handleSelectChange = e => {
-    setSelectedCurrency(e.target.value)
-
-    handleSearch(e)
-  }
-
-  const handleSelectClick = () => {
-    setIsSelectOpen(prev => !prev)
-  }
 
   async function handleSearch({ value }) {
     setLoading(true)
@@ -78,23 +69,7 @@ const SearchBar = () => {
             placeholder="Search Ticker"
             type="text"
           />
-          <div className={styles.selectContainer}>
-            <select
-              translate="no"
-              onChange={handleSelectChange}
-              onClick={handleSelectClick}
-              className={styles.select}
-              defaultValue="USD"
-              name=""
-              id=""
-            >
-              <option value="USD">USD</option>
-              <option value="ARS">ARS</option>
-              <option value="EUR">EUR</option>
-              <option value="GDP">GDP</option>
-            </select>
-            {isSelectOpen ? <ChevronUp className={styles.chevron} /> : <ChevronDown className={styles.chevron} />}
-          </div>
+          {/* <InputSelect setSelectedCurrency={setSelectedCurrency} /> */}
         </div>
 
         <div className={styles.resultsList}>
