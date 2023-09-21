@@ -40,7 +40,7 @@
   background-color: #fff;
   border-radius: var(--border-radius);
   box-shadow: var(--dark-shadow);
-  display: none;
+  display: grid;
   padding: calc(var(--search-bar-height) + 1rem) 1rem 1rem 1rem;
   place-items: center;
   position: absolute;
@@ -48,10 +48,6 @@
   width: 100%;
   width: 100%;
   z-index: 0;
-}
-
-.wrapper:focus-within .resultsList {
-  display: grid;
 }
 
 .resultsForHelper {
