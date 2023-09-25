@@ -76,7 +76,7 @@ const SearchBar = () => {
             onChange={handleInputChange}
             value={search}
             className={styles.input}
-            placeholder="Search Ticker"
+            placeholder="Search ticker"
             type="text"
             onBlur={handleInputBlur}
             onFocus={() => setFocus(true)}
