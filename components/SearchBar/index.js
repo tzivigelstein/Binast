@@ -1,16 +1,16 @@
-import {useState, useMemo} from "react"
+import { useState, useMemo } from "react"
 import styles from "./index.module.css"
 import Image from "next/image"
-import {Search} from "../Icons"
-import debounce from "../../helpers/debounce"
-import Spinner from "../Spinner"
-import useCrypto from "../../hooks/useCrypto"
-import {parseData} from "../../helpers/parseCryptos"
+import { Search } from "@components/Icons"
+import debounce from "@helpers/debounce"
+import Spinner from "@components/Spinner"
+import useCrypto from "@hooks/useCrypto"
+import { parseData } from "@helpers/parseCryptos"
 
 const SEARCH_AFTER_500_MS = 500
 
 const SearchBar = () => {
-  const {setSelectedCrypto} = useCrypto()
+  const { setSelectedCrypto } = useCrypto()
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -18,7 +18,7 @@ const SearchBar = () => {
 
   const [search, setSearch] = useState("")
 
-  async function handleSearch({value}) {
+  async function handleSearch({ value }) {
     setLoading(true)
 
     const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${value}&tsyms=USD`
@@ -26,12 +26,12 @@ const SearchBar = () => {
     await fetch(url)
       .then(response => response.json())
       .then(response => {
-        const {RAW: rawData, Response: error} = response
+        const { RAW: rawData, Response: error } = response
 
         if (error === "Error") throw new Error("Couldn't find crypto 🤔")
 
         const data = Object.values(rawData)[0]
-        setData(() => parseData({RAW: data}))
+        setData(() => parseData({ RAW: data }))
       })
       .finally(() => setLoading(false))
       .catch(error => {
@@ -40,9 +40,12 @@ const SearchBar = () => {
       })
   }
 
-  const debounced = useMemo(() => debounce(handleSearch, SEARCH_AFTER_500_MS), [])
+  const debounced = useMemo(
+    () => debounce(handleSearch, SEARCH_AFTER_500_MS),
+    []
+  )
 
-  const handleInputChange = ({target: {value}}) => {
+  const handleInputChange = ({ target: { value } }) => {
     setError(null)
     setFocus(true)
 
@@ -50,11 +53,18 @@ const SearchBar = () => {
 
     setSearch(parsedValue)
     if (parsedValue === "") return
-    debounced({value: parsedValue})
+    debounced({ value: parsedValue })
   }
 
   function handleResultClick() {
     setSelectedCrypto(data)
+    setFocus(false)
+  }
+
+  const handleInputBlur = () => {
+    setTimeout(() => {
+      setFocus(false)
+    }, 400)
   }
 
   return (
@@ -68,7 +78,7 @@ const SearchBar = () => {
             className={styles.input}
             placeholder="Search Ticker"
             type="text"
-            onBlur={() => setFocus(false)}
+            onBlur={handleInputBlur}
             onFocus={() => setFocus(true)}
           />
         </div>
@@ -81,7 +91,11 @@ const SearchBar = () => {
             {data && !loading && !error && (
               <button onClick={handleResultClick} className={styles.result}>
                 <div className={styles.coinDataContainer}>
-                  <Image width={32} height={32} src={`https://cryptocompare.com/${data.imageUrl}`} />
+                  <Image
+                    width={32}
+                    height={32}
+                    src={`https://cryptocompare.com/${data.imageUrl}`}
+                  />
                   <span>{data.id}</span>
                 </div>
                 <p>{data.price}</p>

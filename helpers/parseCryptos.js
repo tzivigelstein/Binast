@@ -18,8 +18,8 @@ export const parseData = ({ RAW, CoinInfo }) => {
     openDay: `$ ${OPENDAY.toLocaleString()}`,
     volumeHour: `${FROMSYMBOL} ${millify(VOLUMEHOUR, { precision: 2, space: true })}`,
     up: PRICE > OPENDAY,
-    highDay: `$ ${HIGHDAY.toLocaleString([], { maximumFractionDigits: HIGHDAY < 10 ? 2 : 0 })}`,
-    lowDay: `$ ${LOWDAY.toLocaleString([], { maximumFractionDigits: LOWDAY < 10 ? 2 : 0 })}`,
+    highDay: `${HIGHDAY.toLocaleString([], { maximumFractionDigits: HIGHDAY < 10 ? 2 : 0 })}`,
+    lowDay: `${LOWDAY.toLocaleString([], { maximumFractionDigits: LOWDAY < 10 ? 2 : 0 })}`,
     name: CoinInfo?.FullName || FROMSYMBOL,
     id: FROMSYMBOL
   }

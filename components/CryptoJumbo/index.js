@@ -1,20 +1,30 @@
-import styles from './index.module.css'
-import SkeletonElement from '../Skeletons/SkeletonElement'
-import Image from 'next/image'
-import { ChevronDown, ChevronUp } from '../Icons'
-import useCrypto from '../../hooks/useCrypto'
-import { imagePlaceholder } from '../../helpers/imagePlaceholder'
+import styles from "./index.module.css"
+import SkeletonElement from "../Skeletons/SkeletonElement"
+import Image from "next/image"
+import useCrypto from "../../hooks/useCrypto"
+import { imagePlaceholder } from "../../helpers/imagePlaceholder"
 
 const CryptoJumbo = () => {
   const { selectedCrypto, loading } = useCrypto()
-  const { id, name, imageUrl, price, volumeHour, changeDay, lowDay, highDay, openDay, marketCapital } = selectedCrypto
+  const {
+    id,
+    name,
+    imageUrl,
+    price,
+    volumeHour,
+    changeDay,
+    lowDay,
+    highDay,
+    openDay,
+    marketCapital,
+  } = selectedCrypto
 
   return (
     <div className={styles.headingContainer}>
       <div className={styles.main}>
         <div className={styles.logoContainer}>
           {loading ? (
-            <SkeletonElement type="roundThumb" style={{ flex: '1 0 auto' }} />
+            <SkeletonElement type="roundThumb" style={{ flex: "1 0 auto" }} />
           ) : (
             <div className={styles.logo}>
               <Image
@@ -28,7 +38,7 @@ const CryptoJumbo = () => {
             </div>
           )}
           {loading ? (
-            <SkeletonElement style={{ height: '1.3125rem' }} type="text" />
+            <SkeletonElement style={{ height: "1.3125rem" }} type="text" />
           ) : (
             <span translate="no" className={styles.shortName}>
               {id}
@@ -36,29 +46,27 @@ const CryptoJumbo = () => {
           )}
         </div>
         {loading ? (
-          <SkeletonElement style={{ height: '2.5rem', width: '70%' }} type="title" />
+          <SkeletonElement
+            style={{ height: "2.5rem", width: "70%" }}
+            type="title"
+          />
         ) : (
           <span className={styles.price}>{price}</span>
         )}
         <div className={styles.highLowContainer}>
           <div className={styles.highPriceContainer}>
             {loading ? (
-              <SkeletonElement style={{ height: '1.3125rem' }} type="text" />
+              <SkeletonElement style={{ height: "1.3125rem" }} type="text" />
             ) : (
-              <>
-                <ChevronUp className={styles.highPriceIcon} />
-                <span className={styles.highPrice}>{highDay}</span>
-              </>
+              <span className={styles.highPrice}>H {highDay}</span>
             )}
           </div>
+          {" · "}
           <div className={styles.lowPriceContainer}>
             {loading ? (
-              <SkeletonElement style={{ height: '1.3125rem' }} type="text" />
+              <SkeletonElement style={{ height: "1.3125rem" }} type="text" />
             ) : (
-              <>
-                <ChevronDown className={styles.lowPriceIcon} />
-                <span className={styles.lowPrice}>{lowDay}</span>
-              </>
+              <span className={styles.lowPrice}>L {lowDay}</span>
             )}
           </div>
         </div>
@@ -66,7 +74,7 @@ const CryptoJumbo = () => {
       <div className={styles.detailContainer}>
         <div className={styles.valueContainer}>
           {loading ? (
-            <SkeletonElement style={{ height: '1.1875rem' }} type="text" />
+            <SkeletonElement style={{ height: "1.1875rem" }} type="text" />
           ) : (
             <>
               <label className={styles.label}>Open day</label>
@@ -76,7 +84,7 @@ const CryptoJumbo = () => {
         </div>
         <div className={styles.valueContainer}>
           {loading ? (
-            <SkeletonElement style={{ height: '1.1875rem' }} type="text" />
+            <SkeletonElement style={{ height: "1.1875rem" }} type="text" />
           ) : (
             <>
               <label className={styles.label}>Volume hour</label>
@@ -86,7 +94,7 @@ const CryptoJumbo = () => {
         </div>
         <div className={styles.valueContainer}>
           {loading ? (
-            <SkeletonElement style={{ height: '1.1875rem' }} type="text" />
+            <SkeletonElement style={{ height: "1.1875rem" }} type="text" />
           ) : (
             <>
               <label className={styles.label}>Market capital</label>
@@ -96,7 +104,7 @@ const CryptoJumbo = () => {
         </div>
         <div className={styles.valueContainer}>
           {loading ? (
-            <SkeletonElement style={{ height: '1.1875rem' }} type="text" />
+            <SkeletonElement style={{ height: "1.1875rem" }} type="text" />
           ) : (
             <>
               <label className={styles.label}>Change day</label>
