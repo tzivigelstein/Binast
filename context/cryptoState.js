@@ -2,9 +2,9 @@ import { useEffect, useReducer } from 'react'
 import CryptoContext from './cryptoContext'
 import cryptoReducer from './cryptoReducer'
 import parseCryptos from '../helpers/parseCryptos'
-import { GET_CRYPTOS_SUCCESS, SET_SELECTED_CRYPTO, LOADING, SET_ERROR } from './types'
+import { GET_CRYPTOS_SUCCESS, GET_CRYPTOS_ERROR, SET_SELECTED_CRYPTO, LOADING, SET_ERROR } from './types'
 
-const DEFAULT_CURRENCY = 'USD'
+const DEFAULT_CURRENCY = 'usd'
 const DEFAULT_SELECTED_CRYPTO = {}
 
 const CryptoState = ({ children }) => {
@@ -30,12 +30,12 @@ const CryptoState = ({ children }) => {
       type: LOADING
     })
     try {
-      const url = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=${limit}&tsym=${currency}`
+      const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${limit}&page=1`
 
       const query = await fetch(url)
       if (await query.ok) {
         const data = await query.json()
-        const parsedData = parseCryptos(data.Data)
+        const parsedData = parseCryptos(data)
 
         dispatch({
           type: GET_CRYPTOS_SUCCESS,

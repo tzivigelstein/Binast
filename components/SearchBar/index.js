@@ -21,17 +21,19 @@ const SearchBar = () => {
   async function handleSearch({ value }) {
     setLoading(true)
 
-    const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${value}&tsyms=USD`
+    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&symbols=${encodeURIComponent(value.toLowerCase())}`
 
     await fetch(url)
-      .then(response => response.json())
       .then(response => {
-        const { RAW: rawData, Response: error } = response
+        if (!response.ok) throw new Error("Something went wrong")
+        return response.json()
+      })
+      .then(coins => {
+        if (!Array.isArray(coins) || coins.length === 0) {
+          throw new Error("Couldn't find crypto 🤔")
+        }
 
-        if (error === "Error") throw new Error("Couldn't find crypto 🤔")
-
-        const data = Object.values(rawData)[0]
-        setData(() => parseData({ RAW: data }))
+        setData(() => parseData(coins[0]))
       })
       .finally(() => setLoading(false))
       .catch(error => {
@@ -94,7 +96,7 @@ const SearchBar = () => {
                   <Image
                     width={32}
                     height={32}
-                    src={`https://cryptocompare.com/${data.imageUrl}`}
+                    src={data.imageUrl}
                   />
                   <span>{data.id}</span>
                 </div>

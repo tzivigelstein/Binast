@@ -11,7 +11,7 @@ const CryptoJumbo = () => {
     name,
     imageUrl,
     price,
-    volumeHour,
+    volumeDay,
     changeDay,
     lowDay,
     highDay,
@@ -32,7 +32,7 @@ const CryptoJumbo = () => {
                 blurDataURL={imagePlaceholder}
                 height={42}
                 width={42}
-                src={`https://cryptocompare.com/${imageUrl}`}
+                src={imageUrl}
                 alt={`${name} - ${id}`}
               />
             </div>
@@ -77,7 +77,7 @@ const CryptoJumbo = () => {
             <SkeletonElement style={{ height: "1.1875rem" }} type="text" />
           ) : (
             <>
-              <label className={styles.label}>Open day</label>
+              <label className={styles.label}>Open 24h</label>
               <span className={styles.value}>{openDay}</span>
             </>
           )}
@@ -87,8 +87,8 @@ const CryptoJumbo = () => {
             <SkeletonElement style={{ height: "1.1875rem" }} type="text" />
           ) : (
             <>
-              <label className={styles.label}>Volume hour</label>
-              <span className={styles.value}>{volumeHour}</span>
+              <label className={styles.label}>Volume 24h</label>
+              <span className={styles.value}>{volumeDay}</span>
             </>
           )}
         </div>
@@ -107,7 +107,7 @@ const CryptoJumbo = () => {
             <SkeletonElement style={{ height: "1.1875rem" }} type="text" />
           ) : (
             <>
-              <label className={styles.label}>Change day</label>
+              <label className={styles.label}>Change 24h</label>
               <span className={styles.value}>{changeDay}</span>
             </>
           )}

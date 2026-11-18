@@ -3,7 +3,7 @@ const path = require("path")
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["cryptocompare.com", "vhv.rs"],
+    domains: ["coin-images.coingecko.com", "assets.coingecko.com"],
   },
   webpack: config => {
     config.resolve.alias = {

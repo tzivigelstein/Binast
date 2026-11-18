@@ -11,7 +11,7 @@ const CryptoChip = ({ data }) => {
 
   const { setSelectedCrypto } = useCrypto()
 
-  const url = `https://cryptocompare.com/${imageUrl}`
+  const url = imageUrl
 
   const handleClick = e => {
     e.preventDefault()
